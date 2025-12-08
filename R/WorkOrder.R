@@ -3,15 +3,16 @@
 #'
 #' @param input 输入
 #' @param output 输出
+#' @param app_id
+#' @param run_env
 #' @param session 会话
-#' @param dms_token 口令
 #'
 #' @return 返回值
 #' @export
 #'
 #' @examples
 #' WorkOrderSelectServer()
-WorkOrderSelectServer <- function(input,output,session,dms_token,erp_token) {
+WorkOrderSelectServer <- function(input,output,session,app_id, run_env = "PRD") {
   #获取参数
   text_WorkOrder=tsui::var_text('text_WorkOrder')
 
@@ -29,6 +30,10 @@ WorkOrderSelectServer <- function(input,output,session,dms_token,erp_token) {
 
 
     }else{
+
+      erp_token = rdbepkg::dbConfig(FAppId = app_id, FType = "ERP", FRunEnv = run_env)
+
+
       data = mdlVMWorkOrderPkg::WorkOrder_select(erp_token = erp_token,FWorkOrderID = FWorkOrder)
       tsui::run_dataTable2(id ='WorkOrder_resultView' ,data =data )
 
@@ -49,16 +54,17 @@ WorkOrderSelectServer <- function(input,output,session,dms_token,erp_token) {
 #'
 #' @param input 输入
 #' @param output 输出
+#' @param app_id
+#' @param run_env
 #' @param session 会话
-#' @param dms_token 口令
 #'
 #' @return 返回值
 #' @export
 #'
 #' @examples
 #' WorkOrderServer()
-WorkOrderServer <- function(input,output,session,dms_token,erp_token) {
-  WorkOrderSelectServer(input = input,output = output,session = session,dms_token = dms_token,erp_token=erp_token)
+WorkOrderServer <- function(input,output,session, app_id, run_env = "PRD") {
+  WorkOrderSelectServer(input = input,output = output,session = session,app_id=app_id, run_env = run_env)
 
 
 }

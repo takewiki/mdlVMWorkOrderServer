@@ -4,7 +4,7 @@
 \alias{WorkOrderServer}
 \title{处理逻辑}
 \usage{
-WorkOrderServer(input, output, session, dms_token, erp_token)
+WorkOrderServer(input, output, session, app_id, run_env = "PRD")
 }
 \arguments{
 \item{input}{输入}
@@ -12,8 +12,6 @@ WorkOrderServer(input, output, session, dms_token, erp_token)
 \item{output}{输出}
 
 \item{session}{会话}
-
-\item{dms_token}{口令}
 }
 \value{
 返回值
