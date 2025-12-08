@@ -11,7 +11,7 @@
 #'
 #' @examples
 #' WorkOrderSelectServer()
-WorkOrderSelectServer <- function(input,output,session,dms_token) {
+WorkOrderSelectServer <- function(input,output,session,dms_token,erp_token) {
   #获取参数
   text_WorkOrder=tsui::var_text('text_WorkOrder')
 
@@ -29,8 +29,7 @@ WorkOrderSelectServer <- function(input,output,session,dms_token) {
 
 
     }else{
-      data = mdlVmWorkOrderr::WorkOrder_selectByDate(dms_token = dms_token,FCalculateYear = FCalculateYear,FLatestVersion =FLatestVersion ,FVersion = FVersion,FCalculationPeriod = FCalculationPeriod)
-
+      data = mdlVMWorkOrderPkg::WorkOrder_select(erp_token = erp_token,FWorkOrderID = FWorkOrder)
       tsui::run_dataTable2(id ='WorkOrder_resultView' ,data =data )
 
       tsui::run_download_xlsx(id = 'dl_WorkOrder',data = data,filename = 'WorkOrder.xlsx')
@@ -58,8 +57,8 @@ WorkOrderSelectServer <- function(input,output,session,dms_token) {
 #'
 #' @examples
 #' WorkOrderServer()
-WorkOrderServer <- function(input,output,session,dms_token) {
-  WorkOrderSelectServer(input = input,output = output,session = session,dms_token = dms_token)
+WorkOrderServer <- function(input,output,session,dms_token,erp_token) {
+  WorkOrderSelectServer(input = input,output = output,session = session,dms_token = dms_token,erp_token=erp_token)
 
 
 }

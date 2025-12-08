@@ -4,7 +4,7 @@
 \alias{WorkOrderServer}
 \title{处理逻辑}
 \usage{
-WorkOrderServer(input, output, session, dms_token)
+WorkOrderServer(input, output, session, dms_token, erp_token)
 }
 \arguments{
 \item{input}{输入}
