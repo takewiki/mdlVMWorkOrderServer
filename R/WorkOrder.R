@@ -35,7 +35,8 @@ WorkOrderSelectServer <- function(input,output,session,app_id, run_env = "PRD") 
 
 
       data = mdlVMWorkOrderPkg::WorkOrder_select(erp_token = erp_token,FWorkOrderID = FWorkOrder)
-      tsui::run_dataTable2(id ='WorkOrder_resultView' ,data =data )
+      # 增加对英文支持
+      tsui::run_dataTable2(id ='WorkOrder_resultView' ,data =data,lang='en' )
 
       tsui::run_download_xlsx(id = 'dl_WorkOrder',data = data,filename = 'WorkOrder.xlsx')
 
