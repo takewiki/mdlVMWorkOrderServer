@@ -25,7 +25,7 @@ WorkOrderSelectServer <- function(input,output,session,app_id, run_env = "PRD") 
     'Product Name',
     'Serial Number',
     'Sales OrderQty',
-    'Delivery Date',
+    'Delivery Date'
     #'Total DeliveryQty'
   )
 
