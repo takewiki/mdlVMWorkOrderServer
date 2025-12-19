@@ -20,13 +20,13 @@ WorkOrderSelectServer <- function(input,output,session,app_id, run_env = "PRD") 
     'Production Date',
     'Sales OrderID',
     'Delivery Location',
-    'Sales OrderID2',
+    #'Sales OrderID2',
     'PN',
     'Product Name',
     'Serial Number',
     'Sales OrderQty',
     'Delivery Date',
-    'Total DeliveryQty'
+    #'Total DeliveryQty'
   )
 
   #设置默认值
@@ -105,8 +105,8 @@ WorkOrderSelectServer <- function(input,output,session,app_id, run_env = "PRD") 
       data_selected = data[ ,input$WorkOrder_column_selector,drop=FALSE]
       # 增加对英文支持
       tsui::run_dataTable2(id ='WorkOrder_resultView' ,data =data_selected,lang='en' )
-
-      tsui::run_download_xlsx(id = 'dl_WorkOrder',data = data_selected,filename = 'WorkOrder.xlsx')
+      filename=paste('WorkOrder-',Sys.Date(),'.xlsx')
+      tsui::run_download_xlsx(id = 'dl_WorkOrder',data = data_selected,filename = filename)
 
 
     }

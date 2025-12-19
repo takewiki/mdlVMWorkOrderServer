@@ -21,4 +21,6 @@ WorkOrderSelectServer(input, output, session, app_id, run_env = "PRD")
 }
 \examples{
 WorkOrderSelectServer()
+Sales OrderID2',
+Total DeliveryQty'
 }
