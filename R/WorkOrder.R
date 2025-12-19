@@ -17,26 +17,28 @@ WorkOrderSelectServer <- function(input,output,session,app_id, run_env = "PRD") 
   WorkOrder_all_columns <- c(
     'Work OrderID',
     'Work OrderId2',
-    'Production Date',
+    'Serial Number',
     'Sales OrderID',
-    'Delivery Location',
-    #'Sales OrderID2',
     'PN',
     'Product Name',
-    'Serial Number',
+    'Production Date',
+
+    'Delivery Location',
+    # 'Sales OrderID2',
+
     'Sales OrderQty',
     'Delivery Date'
-    #'Total DeliveryQty'
+    # 'Total DeliveryQty'
   )
 
   #设置默认值
   WorkOrder_default_columns <- c(
     'Work OrderID',
+    'Serial Number',
+    'Sales OrderID',
     'PN',
     'Product Name',
-    'Serial Number',
     'Production Date',
-    'Sales OrderID',
     'Delivery Location'
   )
   WorkOrder_reset_columns <- c(
